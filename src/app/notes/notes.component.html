@@ -1,0 +1,7 @@
+<h1><i>{{pageTitle}}</i></h1>
+<div class="col-md-12 container">
+<div *ngFor="let note of (notes | filterTitle: pattern | sort: [sort, order] )">
+<app-note-short [note]="note"></app-note-short>
+<button class="btn-danger" *ngIf="note.creator == currentUser" (click)="deleteCurrentNote(note._id)">Delete Note</button>
+</div>
+</div>

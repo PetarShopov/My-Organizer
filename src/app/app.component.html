@@ -1,0 +1,32 @@
+<div class="container">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" routerLink="home">My Organizer</a>
+    </div>
+        <ul *ngIf="!hasAuth" class="nav navbar-nav navbar-top">
+           <li><a routerLink="home">Home</a></li>
+          <li><a routerLink="users/login" id="loginLink">Login</a></li>
+          <li><a routerLink="users/register" id="registerLink">Register</a></li>
+        </ul>
+        <form *ngIf="hasAuth" (ngSubmit)="submitForm()" class = "form-horizontal" role="form">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a routerLink="userPanel">Hello {{currentUser}} !</a></li>
+            <li><a routerLink="tasks">Tasks</a></li>
+            <li><a routerLink="notes" id="newpostlLink">Notes</a></li>
+            <li><a routerLink="users/new-note" id="newpostlLink2">New Note</a></li>
+            <li><a routerLink="users/about" id="aboutLink2">About</a></li>
+            <li><a (click)="logout()">Log off</a></li>
+          </ul>
+        </form>
+  </div>
+</nav>
+<!-- App views loader-->
+<router-outlet></router-outlet>
+
+<footer>
+        <hr />
+        <p style="text-align: center">&copy; 2017 - My Organizer</p>
+    </footer>
+</div>
+

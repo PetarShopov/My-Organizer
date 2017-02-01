@@ -1,0 +1,119 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Please sign in</h3>
+        </div>
+        <div class="panel-body">
+          <form (ngSubmit)="register()" #registerFrom="ngForm" role="form">
+            <fieldset>
+              <div class="form-group">
+                <input type="text" class="username form-control"
+                       [(ngModel)]="userData.username" name="username"
+                       required minlength="6" maxlength="20"
+                       placeholder="username"
+                       #username="ngModel">
+                <div *ngIf="username.errors && (username.dirty || username.touched)"
+                     class="alert alert-danger">
+                  <div [hidden]="!username.errors.required">
+                    Username is required
+                  </div>
+                  <div [hidden]="!username.errors.minlength">
+                    Username must be at least 6 characters long.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="firstName form-control"
+                       [(ngModel)]="userData.firstName"
+                       ngModel minlength="2"
+                       ngModel maxlength="20"
+                       name="firstName"
+                       #firstname="ngModel"
+                       placeholder="First Name">
+
+                <div *ngIf="firstname.errors && (firstname.dirty || firstname.touched)"
+                     class="alert alert-danger">
+                  <div [hidden]="!firstname.errors.required">
+                    Name is required
+                  </div>
+                  <div [hidden]="!firstname.errors.minlength">
+                    Name must be at least 2 characters long.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="lastName form-control"
+                       [(ngModel)]="userData.lastName"
+                       ngModel minlength="2"
+                       ngModel maxlength="20"
+                       name="lastName"
+                       #lastname="ngModel"
+                       placeholder="Last Name">
+                <div *ngIf="lastname.errors && (lastname.dirty || lastname.touched)"
+                     class="alert alert-danger">
+                  <div [hidden]="!lastname.errors.required">
+                    Last name is required
+                  </div>
+                  <div [hidden]="!lastname.errors.minlength">
+                    Last name must be at least 2 characters long.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="email form-control"
+                       [(ngModel)]="userData.email"
+                       ngModel minlength="6"
+                       ngModel maxlength="30"
+                       name="email"
+                       #email="ngModel"
+                       placeholder="Email adress">
+                <div *ngIf="email.errors && (email.dirty || email.touched)"
+                     class="alert alert-danger">
+                  <div [hidden]="!email.errors.required">
+                    Email is required
+                  </div>
+                  <div [hidden]="!email.errors.minlength">
+                    Email must be at least 6 characters long.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="password" id="password"
+                       class="form-control"
+                       [(ngModel)]="userData.password"
+                       ngModel minlength="5"
+                       ngModel maxlength="20"
+                       name="password"
+                       #password="ngModel"
+                       placeholder="password">
+                <div *ngIf="password.errors && (password.dirty || password.touched)"
+                     class="alert alert-danger">
+                  <div [hidden]="!password.errors.required">
+                    Password is required
+                  </div>
+                  <div [hidden]="!password.errors.minlength">
+                    Password must be at least 5 characters long.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="password" id="con_password"
+                         class="form-control"
+                         [(ngModel)]="confirmPass"
+                         name="con_username"
+                         placeholder="confirm password">
+                  <span class="alert alert-danger" *ngIf="!checkPasswordsMatch">Passwords do not match</span>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary" [disabled]="!registerFrom.form.valid">Register</button>
+              <button type="button" class="btn btn-primary" routerLink="/users/login">Already have an account? Login
+              </button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

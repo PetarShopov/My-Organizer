@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h4>Comments:</h4>
+    </div>
+  </div>
+
+
+  <div class="comment-box" *ngFor="let comment of comments">
+    <div class="row">
+      <div class="col-sm-1">
+      </div>
+      <div class="col-sm-5">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <strong>{{comment.author}}</strong>
+          </div>
+          <div class="panel-body">
+            {{comment.content}}
+          </div>
+          <button class="btn btn-primary btn-block" *ngIf="comment.author == currentUser" (click)="deleteComment(comment._id)">Delete Comment</button>
+        </div>
+      </div>
+      <div class="col-sm-1">
+      </div>
+    </div>
+  </div>
+
+  <form (ngSubmit)="addComment()" id="comment-form">
+    <div>
+      <h3 class="prompt">Add new comment</h3>
+        <textarea rows="10"
+                  [(ngModel)]="commentData.content"
+                  ngModel minlength="10"
+                  ngModel maxlength="200"
+                  name="comment"
+                  id="comment"
+                  placeholder="Comment"></textarea>
+    </div>
+    <div>
+      <input type="submit" value="Add Comment">
+    </div>
+  </form>
+
+</div>
+

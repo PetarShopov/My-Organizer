@@ -1,0 +1,4 @@
+<app-title-search (titleFilter)="titleFilter($event)"></app-title-search>
+<app-notes-sort-by (selectSort)="sorting($event)"></app-notes-sort-by>
+<app-notes-order-by (selectOrder)="ordering($event)"></app-notes-order-by>
+<app-notes [sortBy]="sortBy" [orderBy]="orderBy" [pattern]="pattern" ></app-notes>

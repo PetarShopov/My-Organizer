@@ -1,0 +1,3 @@
+<select #order (change)="selectItem(order.value)">
+    <option  *ngFor="let value of values"  [attr.selected]="value === 'Descending'" value="{{value}}">{{value}}</option>
+</select>

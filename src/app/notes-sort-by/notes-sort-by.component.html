@@ -1,0 +1,3 @@
+<select #sort (change)="selectItem(sort.value)">
+    <option *ngFor="let value of values"  [attr.selected]="value === 'Title'" value="{{value}}">{{value}}</option>
+</select>

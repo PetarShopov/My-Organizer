@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      <div class="row">
+        <div class="span8">
+          <h4><strong><a [routerLink]="['/notes', noteId]">{{title}}</a></strong></h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-md-3">
+          <a class="thumbnail" style="float: left;margin-right: 20px" href="#">
+            <img class="note-img" [src]="image" [alt]="title" [title]="title"/>
+          </a>
+        </div>
+        <div class="span10">
+          <p style="word-wrap: break-word;width: 93%;">
+            {{content}}
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span8">
+          <p></p>
+          <p>
+            <i class="icon-user"></i> by: <i>{{creator}}</i>
+            | <i class="icon-calendar"></i> {{startDate | date}}
+            | Read more...
+            <!--| <a class="btn" href="#">Read more</a>-->
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+</div>
